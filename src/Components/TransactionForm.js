@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
 import {GlobalContext} from '../Context/GlobalState';
 
+
 export const TransactionForm = () => {
     const [text, setText] = useState('');
     const [amount, setAmount] = useState('');
@@ -25,16 +26,21 @@ export const TransactionForm = () => {
 
     return (
         <div>
-            <h1>Add new transaction</h1>
+            <h3>Add new transaction</h3>
 
             <form onSubmit={Submit}>
+            <div className="form-control">
                 <label htmlFor = "text">Transaction Details</label>
+                <br/>
                 <input type = "text" value = {text} id = 'text' required = "required" onChange = {(e)=> {setText(e.target.value);}}  placeholder = "Enter transaction details"/>
-                <br/><br/>
+            </div>
+
+            <div className="form-control">
                 <label htmlFor = "amount">Amount</label>
+                <br/>
                 <input type = "number" value = {amount} id = 'amount' required = "required" onChange = {(e)=> {setAmount(e.target.value);}}/>
-                <br/><br/>
-                <button type = "submit">Add Transaction</button>
+            </div>
+                <button  className="btn" type = "submit">Add Transaction</button>
             </form>
         </div>
     )

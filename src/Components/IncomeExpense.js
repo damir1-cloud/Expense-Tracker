@@ -1,6 +1,7 @@
 import React, {useContext} from 'react'
-import './IncomeExpense.css';
 import {GlobalContext} from '../Context/GlobalState';
+
+
 
 export const IncomeExpense = () => {
     const {transactions} = useContext(GlobalContext);
@@ -15,14 +16,14 @@ export const IncomeExpense = () => {
         .reduce((pre, curr) => (pre+curr),0);
 
     return (
-        <div className = "row">
-            <div className = "column">
-                <h4>{income}</h4>
-                <p>+PKR0.00</p>
+        <div className="inc-exp-container">
+            <div>
+                <h4 className="money plus">PKR{income}</h4>
+                
             </div>
-            <div className = "column">
-                 <h4>{expense}</h4>
-                <p>-PKR0.00</p>
+            <div>
+                 <h4 className="money minus">PKR{expense}</h4>
+                
             </div>
         </div>
     )
